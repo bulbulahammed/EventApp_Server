@@ -8,7 +8,8 @@
     "lint:check": "eslint \"src/**/*.ts\" --ignore-pattern 'node_modules/*' --ignore-pattern 'dist/*' --ignore-pattern '.env'",
     "lint:fix": "eslint --fix",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "author": "Bulbul Ahammed",
   "license": "ISC",
@@ -23,6 +24,7 @@
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
