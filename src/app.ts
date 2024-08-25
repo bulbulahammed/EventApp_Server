@@ -1,9 +1,13 @@
 import cors from 'cors'
 import express, { Application, Request, Response } from 'express'
+import { UserRoutes } from './app/modules/users/users.route'
 const app: Application = express()
 
 // Cors
 app.use(cors())
+
+// Application Routes
+app.use('/api/v1/users/', UserRoutes)
 
 // Parser
 app.use(express.json())
