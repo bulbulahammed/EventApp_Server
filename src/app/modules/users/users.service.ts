@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import bcrypt from 'bcrypt'
 import ApiError from '../../../errors/apiError'
+import { generateToken } from '../../../utils/generateToken'
 import { IUser } from './users.interface'
 import { User } from './users.model'
 
@@ -32,6 +35,41 @@ const signUp = async (user: IUser): Promise<IUser | null> => {
   }
 }
 
+// Login Service
+
+type LoginResult = {
+  user: IUser
+  token: string
+}
+
+const login = async (user: IUser): Promise<LoginResult | null> => {
+  try {
+    const loggedInUser = await User.findOne({
+      email: user.email
+    })
+    if (
+      !loggedInUser ||
+      !(await bcrypt.compare(user.password, loggedInUser.password))
+    ) {
+      if (!loggedInUser) {
+        throw new ApiError(404, 'User Not Found !')
+      } else {
+        throw new ApiError(400, 'Incorrect Password !')
+      }
+    }
+    // Generate a JWT token for the user
+    const token = generateToken(loggedInUser.id)
+    // Return the JWT token
+    return { token, user: loggedInUser }
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error
+    }
+    throw new ApiError(400, 'Failed to Login')
+  }
+}
+
 export const UserService = {
-  signUp
+  signUp,
+  login
 }

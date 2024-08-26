@@ -24,6 +24,21 @@ const signUp: RequestHandler = catchAsync(
   }
 )
 
+// Login controller
+const login: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { user } = req.body
+    const result = await UserService.login(user)
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Login Successfully!',
+      data: result
+    })
+  }
+)
+
 export const UserController = {
-  signUp
+  signUp,
+  login
 }
