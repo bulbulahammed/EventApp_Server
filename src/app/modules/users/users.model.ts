@@ -18,15 +18,6 @@ const userSchema = new Schema<IUser>(
     password: {
       type: String,
       required: true
-    },
-    readingList: {
-      bookId: [{ type: String }]
-    },
-    wishList: {
-      bookId: [{ type: String }]
-    },
-    readList: {
-      bookId: [{ type: String }]
     }
   },
   {
