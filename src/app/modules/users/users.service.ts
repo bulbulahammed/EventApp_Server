@@ -13,10 +13,8 @@ const signUp = async (user: IUser): Promise<IUser | null> => {
     if (existingUser) {
       throw new ApiError(400, 'User with this email already exists')
     }
-
     // Hash the password using bcrypt
     const hashedPassword = await bcrypt.hash(password, saltRounds)
-
     // Create a new user object with the hashed password
     const newUser = {
       ...rest,

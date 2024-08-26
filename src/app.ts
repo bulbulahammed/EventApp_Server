@@ -6,11 +6,12 @@ const app: Application = express()
 // Cors
 app.use(cors())
 
+// Parser Need to use before Application Route
+app.use(express.json())
+
 // Application Routes
 app.use('/api/v1/users/', UserRoutes)
 
-// Parser
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req: Request, res: Response) => {
