@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import bcrypt from 'bcrypt'
 import ApiError from '../../../errors/apiError'
@@ -24,7 +23,6 @@ const signUp = async (user: IUser): Promise<IUser | null> => {
       email,
       password: hashedPassword
     }
-
     const createdUser = await User.create(newUser)
     return createdUser
   } catch (error) {
