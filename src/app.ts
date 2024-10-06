@@ -1,5 +1,6 @@
 import cors from 'cors'
 import express, { Application, Request, Response } from 'express'
+import { EventsRoutes } from './app/modules/event/events.route'
 import { UserRoutes } from './app/modules/users/users.route'
 const app: Application = express()
 
@@ -11,6 +12,7 @@ app.use(express.json())
 
 // Application Routes
 app.use('/api/v1/users/', UserRoutes)
+app.use('/api/v1/events/', EventsRoutes)
 
 app.use(express.urlencoded({ extended: true }))
 
