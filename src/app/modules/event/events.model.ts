@@ -43,6 +43,10 @@ const eventSchema = new Schema<IEvent>(
     url: {
       type: String,
       required: true
+    },
+    createdBy: {
+      type: String,
+      required: true
     }
   },
   {

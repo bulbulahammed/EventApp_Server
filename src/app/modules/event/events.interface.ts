@@ -10,6 +10,7 @@ export type IEvent = {
   categoryId: string
   price: string
   isFree: boolean
+  createdBy: string
   url: string
 }
 
