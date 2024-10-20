@@ -4,13 +4,13 @@ export type IEvent = {
   title: string
   description: string
   location: string
-  imageUrl: string
+  image: string
   startDate: string
   endDate: string
-  categoryId: string
+  category: string
   price: string
   isFree: boolean
-  createdBy: string
+  organizer: string
   url: string
 }
 

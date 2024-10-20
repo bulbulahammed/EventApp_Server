@@ -16,7 +16,7 @@ const eventSchema = new Schema<IEvent>(
       type: String,
       required: true
     },
-    imageUrl: {
+    image: {
       type: String,
       required: true
     },
@@ -28,7 +28,7 @@ const eventSchema = new Schema<IEvent>(
       type: String,
       required: true
     },
-    categoryId: {
+    category: {
       type: String,
       required: true
     },
@@ -44,7 +44,7 @@ const eventSchema = new Schema<IEvent>(
       type: String,
       required: true
     },
-    createdBy: {
+    organizer: {
       type: String,
       required: true
     }
