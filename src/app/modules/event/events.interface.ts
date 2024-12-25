@@ -11,7 +11,6 @@ export type IEvent = {
   price: string
   isFree: boolean
   organizer: string
-  url: string
 }
 
 export type EventModel = Model<IEvent, Record<string, unknown>>
