@@ -40,10 +40,6 @@ const eventSchema = new Schema<IEvent>(
       type: Boolean,
       required: true
     },
-    url: {
-      type: String,
-      required: true
-    },
     organizer: {
       type: String,
       required: true
